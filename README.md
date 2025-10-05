@@ -97,6 +97,7 @@ Puedes llamar a estas funciones **sin gas** para consultar datos:
 | `getUserBalance(user)`   | Balance de un usuario específico (ingresa tu dirección).                   |
 | `getTotalDeposits()`     | Suma histórica de todos los depósitos (sin restar retiros).               |
 | `getTotalWithdrawals()`  | Número total de retiros realizados.                                        |
+| `getDepositCount()`      | Número total de depósitos.	                                        |
 
 **Ejemplo (en Remix)**:
 1. Llama a `getUserBalance` con tu dirección como parámetro.
