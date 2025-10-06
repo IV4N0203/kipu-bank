@@ -5,7 +5,7 @@ pragma solidity 0.8.26;
 /// @author IV4N0203 - AIR.dev
 /// @dev Contrato que simula ser bancario para gestionar depósitos y retiros de ETH con límites.
 /// @notice Este contrato forma parte del Ethereum Developer Pack Modulo 2
-/// @custom:security Este contrato es educativo y no debe usarse en produccion.
+/// @custom:security Este contrato es educativo y no debe ser usado en produccion.
 
 contract KipuBank {
     /*///////////
@@ -151,6 +151,8 @@ contract KipuBank {
     /// @dev Función de fallback que permite depositar ETH en el contrato. Llamada automáticamente cuando se envía ETH directamente al contrato. Utiliza el modificador `nonZeroAddress` para validar la dirección del llamador.
     
     receive() external payable nonZeroAddress {
+        if (msg.value == 0) {revert KipuBank_ZeroAmount();
+        }
         _deposit(msg.sender, msg.value);
     }
 
